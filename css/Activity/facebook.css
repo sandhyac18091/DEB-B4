@@ -1,0 +1,50 @@
+.face{
+    color:dodgerblue;
+    text-align: center;
+    margin-top: 10%;
+    font-size: xxx-large;
+    font-family: Helvetica;
+
+}
+body{
+    background-color: rgba(222, 228, 231, 0.404);
+}
+.container{
+    width:22%;
+    height:310px;
+    background-color: white;
+    margin-left: 800px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} 
+.para{
+    text-align: center;
+    margin-top: 10px;
+    font-size: large;
+    font-weight: 500;
+}
+.input{
+    margin-left: 50px;
+    width:350px;
+    height: 40px;
+    border-radius: 6px;
+    border-style: outset;
+    
+    
+}
+.submit{
+    margin-left: 50px;
+    width:350px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    font-weight: 600;
+    font-size: larger;
+    color: white;
+    
+}
+.for{
+    /* margin-left: 50px; */
+    text-align: center;
+    color: dodgerblue;
+}
