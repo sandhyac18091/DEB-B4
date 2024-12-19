@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=20;
+        let b=30;
+        
+    document.write(`<br>before swapping a=${a} b=${b}`);
+
+    temp=a;
+    a=b;
+    b=temp;
+    document.write(`<br>after swapping a=${a} b=${b} <br><br>`);
+
+    //without using temp variable
+    let c=40;
+    let d=50;
+    
+
+    document.write(`<br> before swapping c=${c} d=${d}`);
+
+    c=c+d;
+    d=c-d;
+    c=c-d
+
+    document.write(`<br> after swapping c=${c} d=${d}`);
+        
+    </script>
+</body>
+</html>

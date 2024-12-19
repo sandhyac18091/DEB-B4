@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=12; //number
+        document.write("The value of a is:",a," ",typeof(a))
+        let b="hello" //string
+        document.write("<br> The value of b is:",b," ",typeof(b))
+        let c=true //boolean
+        document.write("<br> the value of c is:",c," ",typeof(c))
+        let d //null
+        document.write("<br> the value of d is:",d," ",typeof(d))
+
+        const m=5;
+        document.write("<br> the value of m is:",m);
+         a=20; //reinitialization of a 
+        
+        {
+            const m=25;
+            let a=20 //redeclaration of a
+            document.write("<br> the value of 'a' in this sub block is:",a," and 'm' is:",m)
+        }
+        document.write("<br> the value of a now:",a)
+ 
+        let e=9;
+        let z=12;
+        s=z<e
+        document.write("<br>value of s is:",s)
+        p=z>e && m<e
+        document.write("<br> result of logical AND  is:",p)
+        n=e>z ? m:e
+        document.write("<br> result of ternory is:",n)
+        x=a++ //post increment
+        document.write(`<br>result of unary operator ${x}, value of a is ${a}`)
+        y=++e //pre increment
+        document.write(`<br> result of unary operator ${y},value of e is ${e}`)
+        
+    </script>
+</body>
+</html>
