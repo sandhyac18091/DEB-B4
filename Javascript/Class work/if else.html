@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=5,b=8,c=2;
+        if(a<b){
+            document.write(`${a} is smallest<br>`)
+        }else{
+            document.write(`${b} is smallest`)
+        }
+        //if else if
+        if(a<b && a<c){
+            document.write(`${a} is smaller`)
+        }else if(b<a && b<c){
+                document.write(`${b} is smallest`)
+            }else{
+                document.write(`<br>${c} is smallest`)
+            }
+
+            //assignment operator
+            let x=5,y=5;
+            if(x==y){
+                document.write(`<br>${x} and ${y} is equal`)
+            }else{
+                document.write("not equal")
+            }
+            let x1=3,y1='9';
+            if(x1===y1){
+                document.write(`<br> ${x1} and ${y1} is equal`)
+            }else{
+                document.write("not equal")
+            }
+        
+            //switch
+            let n=5,l=6,m='*';
+            switch (m) {
+                case '+':{
+                    let s;
+                    s=n+l;
+                    document.write("<br>the addition is:",n+l)
+                    break;
+                }
+
+                case '-':{
+                    document.write("<br>the subtraction is:",n-l)
+                    break;
+                }
+                case '*':{
+                    document.write("<br>the multiplication is:",n*l)
+                    break;
+                }
+                default:{
+                    document.write("invalid input")
+                }
+                
+            }
+    </script>
+</body>
+</html>

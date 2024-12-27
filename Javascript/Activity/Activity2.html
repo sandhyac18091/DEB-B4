@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="para">
+        <p>Program to print a para about yourself using createElement() , textContent & append child.</p>
+    </div>
+    <div id="movie">
+        <p>Make an unordered list of cinemas on html page using javascript.</p>
+    </div>
+    <div id="dropdown">
+        <p>Create a dropdown for programming language classes offered on html page using javascript.</p>
+    </div>
+    <div id="good">
+        <p>On the KBA-courses site you created add a radio button showing your experience on KBA(like good, bad, average).</p>
+        <div id="bad"></div>
+        <div id="avg"></div>
+    </div>
+    <div id="cake"></div>
+    <script>
+        //Program to print a para about yourself using createElement() , textContent & append child.
+        let element1=document.createElement("p")
+        element1.textContent="About me: Hai Myself Sandhya Iam from Palakkad i graduated Master of computer Application from Rajiv Gandhi Institute of Technology,Kottayam  my ambition to become a frontend developer at a reputed company, iam currently studying PG Diploma in blockchain at IIITMK to buid my programming skill."
+        document.getElementById("para").appendChild(element1)
+        
+        
+        //Make an unordered list of cinemas on html page using javascript.
+        let element2=document.createElement("ul")
+        element3=document.createElement("li")
+        element3.textContent="Arm"
+        document.getElementById("movie").appendChild(element3)
+        element4=document.createElement("li")
+        element4.textContent="Marco"
+        document.getElementById("movie").appendChild(element4)
+        element5=document.createElement("li")
+        element5.textContent="Sookshmadarshini"
+        document.getElementById("movie").appendChild(element5)
+        
+        //Create a dropdown for programming language classes offered on html page using javascript.
+        let select1=document.createElement("select")
+        opt1=document.createElement("option")
+        opt1.textContent="Html"
+        select1.appendChild(opt1)
+
+        let select2=document.createElement("option")
+        opt2=document.createElement("option")
+        opt2.textContent="Css"
+        select1.appendChild(opt2)
+
+        let select3=document.createElement("select")
+        opt3=document.createElement("option")
+        opt3.textContent="Javascript"
+        select1.appendChild(opt3)
+        document.getElementById("dropdown").appendChild(select1)
+
+        //On the KBA-courses site you created add a radio button showing your experience on KBA(like good, bad, average).
+        let exp=document.createElement("input")
+        exp.type="radio";
+        exp.name="experience"
+        exp.value="Good"
+        let label=document.createElement("label")
+        label.textContent="Good"
+        label.appendChild(exp);
+        document.getElementById("good").appendChild(exp)
+        
+        let exp1=document.createElement("input")
+        exp1.type="radio";
+        exp1.name="Good"
+        document.getElementById("bad").appendChild(exp1)
+
+        let exp2=document.createElement("input")
+        exp2.type="radio"
+        exp2.name="Good"
+        document.getElementById("avg").appendChild(exp2)
+
+
+        //Create a dropdown for list of cakes and print the value of second option.
+        let cake1=document.createElement("select")
+        option1=document.createElement("option")
+        option1.textContent="whiteforest"
+        cake1.appendChild(option1)
+
+        option2=document.createElement("option")
+        option2.textContent="Blackforest"
+        cake1.appendChild(option2)
+        document.write("<br>second option:",option2.textContent)
+
+        option3=document.createElement("option")
+        option3.textContent="Red welwet"
+        cake1.appendChild(option3)
+        document.getElementById("cake").appendChild(cake1)
+
+        //Print your full name storing fname & lname. Print in Uppercase.
+        document.write("<br><br>Print your full name storing fname & lname. Print in Uppercase.")
+        let fname="Sandhya"
+        let lname="C"
+        let fullname=fname+' '+lname;
+        document.write("<br>Fullname:",fullname.toUpperCase())
+
+        //“You can study anything if you have a will to do it”.Take the substrings “You can study”, “you”,”will”,”do it” and combine as a sentence.
+        document.write("<br><br>*You can study anything if you have a will to do it”. Take the substrings 'You can study', 'you', 'will', 'do it' and combine as a sentence.<br>");
+
+        let sentence = "You can study anything if you have a will to do it";
+
+
+        let sent1 = sentence.substring(0, 13);
+        document.write(sent1, "<br>");
+
+        let sent2 = sentence.substring(26, 29); 
+        document.write(sent2, "<br>");
+
+        let sent3 = sentence.substring(36, 41); 
+        document.write(sent3, "<br>");
+
+        let sent4 = sentence.substring(44, 50);
+        document.write(sent4, "<br>");
+
+
+        document.write(sent1 + " " + sent2 + " " + sent3 + " " + sent4);
+
+        //“MongoDB is a decentralised distributed ledger . MongoDB can eliminate centralisation.” Replace MongoDB with Blockchain.
+        document.write("<br><br> “MongoDB is a decentralised distributed ledger . MongoDB can eliminate centralisation.” Replace MongoDB with Blockchain.")
+        document.write("<br><br>MongoDB is a decentralised distributed ledger.MongoDB can eliminate centralisation")
+        let replace="Blockchain"
+        document.write(`<br>${replace} is a decentralised distributed ledger.${replace} can eliminate centralisation.`)
+
+        //Print the string “MongoDB is a decentralised distributed ledger” using substring/substr.
+        document.write("<br><br>Print the string “MongoDB is a decentralised distributed ledger” using substring/substr.")
+        let MongoDB="MongoDB is a decentralised distributed ledger"
+        document.write("<br>",MongoDB.substring(0,46))
+        document.write("<br>",MongoDB.substr(0,46))
+
+        //Compare “Hello World” & “hEllO World” and display the result & its type.
+        document.write("<br><br>Hello World” & “hEllO World” and display the result & its type")
+        let str1="Hello World"
+        let str2="hEllO  World"
+        let compare=(str1===str2)
+        document.write("<br>",compare)
+        document.write("<br>", typeof compare)
+
+        //Print this statement “ I am ___ yrs of old and my brother is 10 yrs older to me. He is now __ years old.”
+        document.write("<br><br>Print this statement “ I am ___ yrs of old and my brother is 10 yrs older to me. He is now __ years old.")
+        let age=20
+        let current=30
+        document.write(`"<br> “ I am ${age}yrs of old and my brother is 10 yrs older to me. He is now ${current} years old.”`)
+
+        //Consider this statement “ My name is ________.(declaring fname & lastname in uppercase). I live in ____(uppercase).
+        document.write("<br><br>Consider this statement “ My name is ________.(declaring fname & lastname in uppercase). I live in ____(uppercase).")
+        let f1="Sandhya"
+        let l1="C"
+        let Fullname=f1+" "+l1
+        let place="Trivandrum"
+        let addname=Fullname.toUpperCase()
+        let addplace=place.toUpperCase()
+        document.write(`<br>My name is "${addname}"  I live in"${addplace}`)
+
+        //Consider these two statements “I like to play video games.” “I don’t like Hide & seek”. Change 'like' to 'don't like'.
+        document.write("<br><br>Consider these two statements “I like to play video games.” “I don’t like Hide & seek”. Change 'like' to 'don't like'.")
+        document.write("<br>“I like to play video games.” “I don’t like Hide & seek”.")
+        let change="I don’t like "
+        let change1="I like"
+        document.write(`"<br>${change} to play video games. ${change1} Hide & seek"`)
+
+        //Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80 (using ternary operator).
+        document.write("<br><br>Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80 (using ternary operator).")
+        let num1=20
+        let num2=30
+        let sum=num1+num2
+        let result=sum>50 && sum<80 ? 60:80
+        document.write("<br> the sum is:",sum)
+        document.write("<br> the result is:",result)
+
+        //Program to find whether the person is eligible for voting using ternary operator
+        document.write("<br><br>Program to find whether the person is eligible for voting using ternary operator")
+        let page=10
+        let eligible=page>=18 ? "eligible for voting":"not eligible for voting"
+        document.write("<br>",eligible)
+
+
+    </script>
+</body>
+</html>

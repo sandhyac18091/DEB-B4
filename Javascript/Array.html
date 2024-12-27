@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a=[1,2,3,4,5]
+        document.write("Position of 2 is:",a[2])
+        document.write("<br>",a[2]=10)
+        document.write("<br>",a)
+
+        //for loop
+        document.write("Using for loop")
+        let a1=[1,2,3,4,5]
+        for(let i=0;i<=5;i++){
+            if(i==2){
+                a1[i]=10;
+            }
+
+            
+        }
+        document.write("<br>",a1)
+
+        //add two of each value
+        document.write("<br>add two of each value")
+        for(i=0;i<5;i++){
+            a1[i]+=2
+        }
+        document.write("<br>",a1)
+
+        //first ten natural numbers store an array using for loop
+        document.write('<br>first ten natural numbers store an array using for loop')
+        let b=[];
+        for(i=0;i<10;i++){
+            b[i]=i+1;
+            }
+        document.write("<br>",b)
+
+        //print set of name and find sandra
+        document.write("<br>print set of name and check array have sandra or not ")
+        let names=["dinsha","sree","sandra","anu"]
+        for(i=0;i<names.length;i++){
+            if(names[1]=="sandra"){
+                document.write("<br>sandra is present")
+                break;
+            }else{
+                document.write("<br>sandra is not present")
+                break
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

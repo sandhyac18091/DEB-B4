@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write(" swapp two numbers with temp <br>")
+        let a=20;
+        let b=30;
+        
+    document.write(`<br>before swapping a=${a} b=${b}`);
+
+    temp=a;
+    a=b;
+    b=temp;
+    document.write(`<br>after swapping a=${a} b=${b} <br>`);
+    document.write("<hr>")
+ 
+    //without using temp
+    document.write("without using temp variable <br>")
+    let c=40;
+    let d=50;
+    
+
+    document.write(`<br> before swapping c=${c} d=${d}`);
+
+    c=c+d;
+    d=c-d;
+    c=c-d
+
+    document.write(`<br> after swapping c=${c} d=${d}`);
+    document.write("<hr>")
+   
+
+    document.write("Program to convert Celsius to fahrenheit <br>")
+    document.write("<br> convert celsius to fahrenheit")
+    let celsius=40
+    let fahrenheit=( (celsius * 9/5) + 32 )
+    document.write("<br> Celsius to fahreneit =", fahrenheit,"<br>")
+    let cf=((fahrenheit-32)*9/5)
+    document.write("fahrenheit to Celsius=",cf,"<br>")
+    document.write("<hr>")
+
+    document.write("largest among two numbers <br>")
+    let x=20;
+    let y=40;
+    
+    let largest=(x>y)? x:y
+        document.write("<br> The largest number is:",largest)
+    
+    document.write("<hr>")
+
+    //square of a number
+    document.write("Program to find square of a number")
+    let n=4
+    document.write("<br>Number=",n,"<br>")
+    document.write(`Square of a number ${n}=`,n**2,"<br>")
+    document.write("<hr>")
+
+    //cube of a number
+    document.write("Program to find cube of a number")
+    n1=8
+    document.write("<br>Number=",n1,"<br>")
+    document.write(`Cube of a number ${n1}=`,n1**4,"<br>")
+    document.write("<hr>")
+
+    // find area of square, circle, rectangle, triangle
+    document.write(" find area of square, circle, rectangle, triangle")
+    let length=30
+    let breadth=50
+    let radius=6
+    let pi=3.14
+
+    document.write("length is:",length,"breadth is:",breadth,"radius is:",radius)
+    document.write("Area of rectangle is:",length*breadth ,"<br>")
+    document.write("Area of square is:",length**2,"<br>")
+    document.write("Area of circle:",radius*radius*pi,"<br>")
+    document.write("Area of triangle is:",(0.5 *(length*breadth)),"<br>")
+    document.write("<hr>")
+
+    //find perimeter of square, circle, rectangle, triangle
+    document.write(" find perimeter of square, circle, rectangle, triangle <br>")
+    document.write("perimeter of rectangle",2*(length*breadth),"<br>")
+    document.write("perimeter of square is:",4*length,"<br>")
+    document.write("perimeter of circle is:",2*radius*pi,"<br>")
+    h=4
+    document.write(`perimeter of triangle is:",${length+breadth+h}`,"<br>")
+    document.write("<hr>")
+
+    //program to find smallest among three numbers
+    document.write("program to find smallest among three numbers")
+    let a1=20
+    let b1=50
+     
+    let smallest=(a1<b1 )? a1:b1
+        document.write(" <br>Smallest number is:",smallest)
+    
+    document.write("<hr>")
+
+    // find simple interest & compound interest
+    document.write("find simple interest & compound interest")
+    let p=2000
+    let r=0.3/100
+    let t=3
+    let r2=0.3
+    let n2=11
+    document.write("<br>Principal amount=",p,"<br> rate=",r,"<br>time=",t,"<br>")
+    let si=((p*r2*t)/100)
+    document.write("Simple intrest is:",si,"<br>")
+    let ci=p*Math.pow(1+(r/n2),n2*t)
+    document.write("Compound intrest=",ci,"<br>")
+    document.write("<hr>")
+
+    //check the given number is zero,positive and negative
+    document.write("Check if the given number is zero, positive, or negative<br>");
+    let num = 40;
+    document.write(`Number = ${num} <br>`);
+    let result = (num > 0) 
+    ? `${num} is a positive number` 
+    : (num < 0) ? `${num} is a negative number`: `${num} is zero`;
+
+        document.write(result);
+        document.write("<hr>");
+
+        //Program to find whether the person is eligible for voting using ternary operator
+        document.write("Program to find whether the person is eligible for voting using ternary operator <br>")
+        let age=12;
+        let eligible=age>=18 ? "Eligible for voting":"Not eligible for voting"
+        document.write(eligible)
+        document.write("<hr>");
+
+        //Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80 (using ternary operator).
+        document.write("Write a JavaScript program to compute the sum of the two given integers. If the sum is in the range 50..80 return 65 otherwise return 80 (using ternary operator).<br>")
+        let num1=20;
+        let num2=30;
+        let sum=num1+num2
+        let results=sum>=50 && sum<=80 ? 65:80;
+        document.write("The sum is:",sum)
+        document.write("<br>The result is:",results)
+        document.write("<hr>");
+    </script>
+
+</body>
+</html>
