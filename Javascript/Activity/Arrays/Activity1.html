@@ -1,29 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         //JS program to find the sum of the elements in array.
         document.write("*JS program to find the sum of the elements in array.")
-        let ar1=[3,4,2,1,6]
-        let sum=0
-        for(let i=0;i<ar1.length;i++)
-        sum+=ar1[i]
-        document.write("<br>Sum of the elements:"+sum)
+        let ar1 = [3, 4, 2, 1, 6]
+        let sum = 0
+        for (let i = 0; i < ar1.length; i++)
+            sum += ar1[i]
+        document.write("<br>Sum of the elements:" + sum)
 
         //JS program to store & print even numbers upto 20 in an array
         document.write("<br><br>JS program to store & print even numbers upto 20 in an array")
-        let evennumbers=[];
-        for(i=2;i<=20;i+=2){
-            evennumbers[evennumbers.length]=i;
+        let evennumbers = [];
+        for (i = 2; i <= 20; i += 2) {
+            evennumbers[evennumbers.length] = i;
         }
-        document.write("<br>Even numbers upto 20:",evennumbers)
+        document.write("<br>Even numbers upto 20:", evennumbers)
 
         // JS program to check whether a number is in the array and if present print the location
+        document.write("<br><br>JS program to check whether a number is in the array and if present print the location")
+        let num = [10, 20, 30, 40, 50]
+        for (i = 0; i < num.length; i++) {
+            if (num[2] == 30) {
+                document.write("<br> 30 is in the array")
+                break
+            } else {
+                document.write("<br> 30 is not in the array")
+                break
+            }
+        }
+        document.write("<br> Print the location of 30:", num.indexOf(30))
+
+        //JS program to remove an element present in a specific location
+        // document.write("<br>JS program to remove an element pesent in a specific location")
+        // document.write("<br> delete 30 from the array:",num.delete(2))
+        // document.write("<br>",num)
+
+        //JS program to copy an element in an aaray to another array
+        document.write("<br><br>JS program to copy an element in an array to another array")
+        array1 = [10, 20, 30, 40, 50]
+        array2 = []
+        document.write("<br> Array1:")
+        for (let i = 0; i < array1.length; i++) {
+            document.write(",", array1[i]);
+            array2[i] = array1[i];
+        }
+        document.write("<br>Array2:")
+        for (let i = 0; i < array2.length; i++) {
+            document.write(",", array2[i])
+
+        }
+        // Print the pattern
+
+
+        document.write("<br><br>Print the pattern:<br>");
+
+        for (let i=1;i<=3;i++) {
+            for (let j=1;j<=i;j++) {
+                document.write(i + " ");
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br><br>Print the pattern:<br>");
+
+        for(let i=0;i<3;i++){
+            for(let j=0;j<3;j++){
+                document.write("2")
+            }
+            document.write("<br>")
+        }
+
+        document.write("<br><br>Print the pattern:<br>");
+        for(let i=1;i<=3;i++){
+            for(let j=1;j<=i;j++){
+                document.write(i+" ")
+            }
+            document.write("<br>")
+        }
+
     </script>
 </body>
+
 </html>

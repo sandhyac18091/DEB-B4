@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>HTML page containing an input tab to enter temperature in celsius and on a button click, it should be converted to fahreinheit</h3>
+    <label>Enter temperature:</label>
+    <input type="number" id="celsius">
+    <input type="button" value="Button" onclick="convertToFahrenheit()">
+    <p id="result"></p>
+    <h3>HTML page to read "name, date-of-birth" and diaplay this in format of id card on clicking "generate ID" button.</h3>
+    <label>Enter name:</label>
+    <input type="text"><br><br>
+    <label>Enter DOB:</label>
+    <input type="number">
+    <script>
+        function convertToFahrenheit() {
+            const celsius = parseFloat(document.getElementById("celsius").value) 
+            
+            const fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById("result").innerHTML = `${celsius} degree celsius is equal to ${fahrenheit.toFixed(2)} degree fahrenheit.`;
+        }
+
+    </script>
+</body>
+</html>

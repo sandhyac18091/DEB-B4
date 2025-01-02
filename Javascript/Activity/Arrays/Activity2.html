@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //JS program to read array a=[20,25,30,35,40,45] and divide the array in to two seperate arrays having equal number of elements.
+        document.write("JS program to read array a=[20,25,30,35,40,45] and divide the array in to two seperate arrays having equal number of elements.")
+        let arr1 = [20, 25, 30, 35, 40, 45]
+        let arr2 = []
+        let arr3 = []
+        let arr4 = arr1.length / 2;
+        for (let i = 0; i < 3; i++) {
+            arr2.push(arr1[i])
+        }
+        for (let i=3;i<arr1.length;i++) {
+            arr3.push(arr1[i])
+        }
+        document.write("<br> First array is:", arr2)
+        document.write("<br> Second array is:", arr3)
+
+        //JS program to concatinate two arrays a=[1,2,3,4] & b=[5,6,7,8] into a single array
+        document.write("<br><br>JS program to concatinate two arrays a=[1,2,3,4] & b=[5,6,7,8] into a single array")
+        let a = [1, 2, 3, 4]
+        let b = [, 5, 6, 7, 8]
+        concat = a + b
+        document.write("<br> Concatinated single array:", concat)
+
+        //JS program to read an array and sort in ascending and descending order
+        document.write("<br><br>JS program to read an array and sort in ascending and descending order");
+
+        let a1 = [20, 50, 30, 10, 40];
+        a1.sort((a, b) => a - b);
+        document.write("<br>Ascending order of an array: " + a1);
+        a1.sort((a, b) => b - a);
+        document.write("<br>Descending order of an array: " + a1);
+
+        //Write a program to read the array [1,6,7,8,2,3,4,2,2].Find the occurance of 2 in this array.
+        document.write("<br><br>Write a program to read the array [1,6,7,8,2,3,4,2,2].Find the occurance of 2 in this array.")
+        a2 = [1, 6, 7, 8, 2, 3, 4, 2, 2]
+        let count = 0;
+
+        for (let i = 0; i < a2.length; i++) {
+            if (a2[i] === 2) {
+                count++; 
+            }
+        }
+
+        document.write("<br>The number 2 appears " + count + " times in the array.");
+
+    </script>
+</body>
+
+</html>

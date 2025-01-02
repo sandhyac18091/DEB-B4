@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <label>Age:</label>
+    <input type="text" id="age">
+    <input type="Button" value="button" onclick="submit()"><br>
+    <label>Enter side of the length</label>
+    <input type="number" id="area">
+    <input type="button" value="button" onclick="click1()"><br>
+    <p id="demo"></p>
+    <p id="dem"></p>
+    <script>
+        // function average(){
+        //     let a=5,b=6
+        //     let sum=a+b
+        //     let avg=sum/2
+        //     document.write(sum)
+        //     document.write("<br>",avg)
+        // }
+        // average();
+
+        // //passing two parameter to the function
+        // function Average(a,b){
+        //     let sum=a+b
+        //     let avg=sum/2
+            
+        //     document.write("<br>",avg)
+        // }
+        // Average(5,6);
+        // //area of square using function
+        // function area(l,b){
+        //    let Area=l*b;
+        //    return Area
+           
+        // }
+        // let x=2,y=3;
+        // const Area=area(x,y)
+        // document.write("<br>",Area)
+
+        //events
+        function submit(){
+
+           const Age= document.getElementById("age").value
+            document.getElementById("demo").innerHTML=Age
+            console.log(age);
+            
+            
+        }
+        function click1(){
+           
+            const area = document.getElementById("area").value;
+            const square = area*area;
+            document.getElementById("dem").innerHTML=square
+        }
+
+    </script>
+</body>
+</html>
