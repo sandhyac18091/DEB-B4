@@ -11,11 +11,23 @@
     <input type="number" id="celsius">
     <input type="button" value="Button" onclick="convertToFahrenheit()">
     <p id="result"></p>
-    <h3>HTML page to read "name, date-of-birth" and diaplay this in format of id card on clicking "generate ID" button.</h3>
-    <label>Enter name:</label>
-    <input type="text"><br><br>
-    <label>Enter DOB:</label>
-    <input type="number">
+    <h3>HTML to read a number and on clicking button find the square of the number.</h3>
+    <label>Enter a number:</label>
+    <input type="number" id="sum">
+    <input type="button" value="Button" onclick="squareofanumber()">
+    <p id="square"></p>
+    <h3>Html page to enter names of fruits and insert the entered name to array and there is a dropdown and on selecting the index from drop down, display the fruit on the index.</h3>
+    <label for="fruitInput">Enter a fruit name:</label>
+  <input type="text" id="fruits" placeholder="e.g., Apple">
+  <button onclick="addFruit()">Add Fruit</button>
+
+  <h2>Fruits</h2>
+  <label for="indexSelect">Choose an index:</label>
+  <select id="indexSelect" onchange="displayFruit()">
+    <option value="" disabled selected>Select an index</option>
+  </select>
+
+  <p id="fruitDisplay" ></p>
     <script>
         function convertToFahrenheit() {
             const celsius = parseFloat(document.getElementById("celsius").value) 
@@ -24,6 +36,28 @@
             document.getElementById("result").innerHTML = `${celsius} degree celsius is equal to ${fahrenheit.toFixed(2)} degree fahrenheit.`;
         }
 
+        //HTML to read a number and on clicking button find the square of the number.
+        function squareofanumber(){
+            const num=document.getElementById("sum").value;
+
+            const square=num*num;
+            document.getElementById("square").innerHTML=`The square of ${num} is ${square}`;
+        }
+        //Html page to enter names of fruits and insert the entered name to array and there is a dropdown and on selecting the index from drop down, display the fruit on the index.
+        const Fruits=[];
+        
+        function addFruit(){
+            const fruit=document.getElementById("fruits").value
+            
+                Fruits.push(fruits);
+                updateDropdown();
+                document.getElementById('fruits').value='';
+           
+        }
+        function updateDropdown(){
+            const drop=document.getElementById("indexSelect");
+            drop.innerHTML='<option selected>Select an index</option>'
+        }
     </script>
 </body>
 </html>

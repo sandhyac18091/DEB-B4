@@ -40,9 +40,14 @@
         document.write("<br> Print the location of 30:", num.indexOf(30))
 
         //JS program to remove an element present in a specific location
-        // document.write("<br>JS program to remove an element pesent in a specific location")
-        // document.write("<br> delete 30 from the array:",num.delete(2))
-        // document.write("<br>",num)
+        document.write("<br><br>JS program to remove an element pesent in a specific location")
+        let num1 = [10, 20, 30, 40, 50]
+        let rem = 2
+        for (let i = rem; i < num1.length - 1; i++) {
+            num1[i] = num1[i + 1]
+        }
+        num1.pop()
+        document.write("<br>Array after removing element at location " + rem + " is: " + num1 + "<br><br>")
 
         //JS program to copy an element in an aaray to another array
         document.write("<br><br>JS program to copy an element in an array to another array")
@@ -63,8 +68,8 @@
 
         document.write("<br><br>Print the pattern:<br>");
 
-        for (let i=1;i<=3;i++) {
-            for (let j=1;j<=i;j++) {
+        for (let i = 1; i <= 3; i++) {
+            for (let j = 1; j <= i; j++) {
                 document.write(i + " ");
             }
             document.write("<br>");
@@ -72,17 +77,17 @@
 
         document.write("<br><br>Print the pattern:<br>");
 
-        for(let i=0;i<3;i++){
-            for(let j=0;j<3;j++){
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
                 document.write("2")
             }
             document.write("<br>")
         }
 
         document.write("<br><br>Print the pattern:<br>");
-        for(let i=1;i<=3;i++){
-            for(let j=1;j<=i;j++){
-                document.write(i+" ")
+        for (let i = 1; i <= 3; i++) {
+            for (let j = 1; j <= i; j++) {
+                document.write(i + " ")
             }
             document.write("<br>")
         }

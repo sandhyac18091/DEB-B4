@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const person=new Object();
+        person.fname="kiran"
+        person.lname="V"
+        person.hobbie="Surfing"
+        person.basicPay=1000
+        person.TA=50
+        person.DA=70
+        person.getDetails=function(){
+            return `PersonName:${this.fname+this.lname}PersonHobbie:${this.hobby}personTotalpay${this.basicPay+this.TA+this.DA}`
+        }
+        document.write(person.getDetails());
+
+        
+    </script>
+</body>
+</html>

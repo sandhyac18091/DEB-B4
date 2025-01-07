@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+    <button onclick="mapMethod()">Map methods</button>
+    <p id="get"></p>
+    <p id="delete"></p>
+    <p id="has"></p>
+    <p id="clear"></p>
+    <p id="role"></p>
+    <p id="iteration"></p>
+    <script>
+        function mapMethod(){
+        // const mymap=new Map(); //map is an object to store values like keyvalue paires
+        // mymap.set("name","Sandhya"); //using set to add a value
+        // mymap.set("age",10);
+        // mymap.set("Employee",true)
+        // mymap.set("Role",["admin","user"])
+        // console.log(mymap.get("name")); //using get retrive values from map
+        // console.log(mymap);
+        const mymap=new Map([
+            ["name","Sandhya"]
+            ["age",22]
+            ["Employee",true]
+            ["Role",["admin","user"]]
+        ]);
+        
+        
+        document.getElementById("get").innerHTML="Name: "+mymap.get('name')
+        document.getElementById("has").innerHTML="Age: "+mymap.has('age')
+        document.getElementById("delete").innerHTML="employee: "+mymap.delete('Employee')
+        // mymap.clear()
+        document.getElementById("clear").innerHTML="After removing Mymap:"+mymap.size
+        const roles=mymap.get('Role')
+        document.getElementById("role").innerHTML='Role is:'+roles.join(',')
+
+        //loop iteration
+        let output=''
+        mymap.forEach((value,key)=>{
+            if(Array.isArray(value)){
+                output+=key+'='+value.join(' and ')+'<br>'
+            }else{
+                output+=key+'='+ value +'<br>'
+            }
+            
+            
+        });
+        document.getElementById('iteration').innerHTML=output
+        }
+    </script>
+</body>
+</html>

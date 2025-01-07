@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="item1" placeholder="item1">
+    <input type="text" placeholder="qty">
+    <label>Price:250</label>
+    <input type="button" value="Add to cart" onclick="addtocart('item1','qty','price1')"><br><br>
+    <input type="text" id="item2"placeholder="item2">
+    <input type="text" placeholder="qty">
+    <label>Price:350</label>
+    <input type="button" value="Add to cart" onclick="addtocart('item1','qty','price1')"><br><br>
+    <input type="text" id="item3"placeholder="item3">
+    <input type="text" placeholder="qty">
+    <label>Price:200</label>
+    <input type="button" value="Add to cart" onclick="addtocart('item1','qty','price1')"><br><br>
+    <input type="button" value="Checkout" onclick="checkout()">
+    <p id="displaycart"></p>
+
+    <script>
+        let cart=[]
+        function addtocart(itemid,qtyid,priceid){
+            const itemname=document.getElementById("itemid").value
+            const itemqty = parseInt(document.getElementById(qtyid).value);
+           
+        }
+        const itemprice = price;
+        if(itemname && itemqty>0 && itemprice>0){
+            const totalprice = itemqty * itemprice; 
+                cart.push({
+                    name: itemname,
+                    quantity: itemqty,
+                    price: itemprice,
+                    total: totalprice
+                });
+        }
+    
+    </script>
+</body>
+</html>

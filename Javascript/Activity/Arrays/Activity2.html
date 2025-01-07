@@ -35,10 +35,29 @@
         document.write("<br><br>JS program to read an array and sort in ascending and descending order");
 
         let a1 = [20, 50, 30, 10, 40];
-        a1.sort((a, b) => a - b);
-        document.write("<br>Ascending order of an array: " + a1);
-        a1.sort((a, b) => b - a);
-        document.write("<br>Descending order of an array: " + a1);
+        for(let i=0;i<a1.length-1;i++){
+            for(let j=i+1;j<a1.length;j++){
+                if(a1[i]>a1[j]){
+                    let temp=a1[i];
+                    a1[i]=a1[j];
+                    a1[j]=temp;
+                }
+            }
+        }
+
+        document.write("<br>Ascending order of an array:"+a1);
+
+        let a2=[20,50,30,10,40];
+        for(let i=0;i<a2.length-1;i++){
+            for(let j=i+1;j<a2.length;j++){
+                if(a2[i]<a2[j]){
+                    let temp=a2[i];
+                    a2[i]=a2[j];
+                    a2[j]=temp;
+                }
+            }
+        }
+        document.write("<br>Decending order of an array:"+a2);
 
         //Write a program to read the array [1,6,7,8,2,3,4,2,2].Find the occurance of 2 in this array.
         document.write("<br><br>Write a program to read the array [1,6,7,8,2,3,4,2,2].Find the occurance of 2 in this array.")
