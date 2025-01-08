@@ -15,11 +15,13 @@
     <div id="dropdown">
         <p>Create a dropdown for programming language classes offered on html page using javascript.</p>
     </div>
-    <div id="good">
+    
         <p>On the KBA-courses site you created add a radio button showing your experience on KBA(like good, bad, average).</p>
-        <div id="bad"></div>
+        <div id="good"></div>
         <div id="avg"></div>
+        <div id="bad"></div>
     </div>
+    <p>Create a dropdown for list of cakes and print the value of second option.</p>
     <div id="cake"></div>
     <script>
         //Program to print a para about yourself using createElement() , textContent & append child.
@@ -62,23 +64,36 @@
         exp.type="radio";
         exp.name="experience"
         exp.value="Good"
+        exp.id="good"
         let label=document.createElement("label")
         label.textContent="Good"
         label.appendChild(exp);
         document.getElementById("good").appendChild(exp)
+        document.getElementById("good").appendChild(label);
         
         let exp1=document.createElement("input")
         exp1.type="radio";
-        exp1.name="Good"
-        document.getElementById("bad").appendChild(exp1)
+        exp1.name="experience"
+        exp1.value="Average"
+        exp1.id="avg"
+        let label2=document.createElement("label")
+        label2.textContent="Average"
+        document.getElementById("avg").appendChild(exp1)
+        document.getElementById("avg").appendChild(label2)
 
         let exp2=document.createElement("input")
         exp2.type="radio"
-        exp2.name="Good"
+        exp2.name="experience"
+        exp2.value="Bad"
+        exp2.id="bad"
+        let label3=document.createElement("label")
+        label3.textContent="Bad"
         document.getElementById("avg").appendChild(exp2)
+        document.getElementById("avg").appendChild(label3)
 
 
         //Create a dropdown for list of cakes and print the value of second option.
+       
         let cake1=document.createElement("select")
         option1=document.createElement("option")
         option1.textContent="whiteforest"
