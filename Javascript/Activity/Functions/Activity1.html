@@ -22,13 +22,14 @@
   <button onclick="addFruit()">Add Fruit</button>
 
   <h2>Fruits</h2>
-  <label for="indexSelect">Choose an index:</label>
+  <label>Choose an index:</label>
   <select id="indexSelect" onchange="displayFruit()">
     <option value="" disabled selected>Select an index</option>
   </select>
 
   <p id="fruitDisplay" ></p>
     <script>
+        //celcius to fahrenheit
         function convertToFahrenheit() {
             const celsius = parseFloat(document.getElementById("celsius").value) 
             
@@ -36,20 +37,21 @@
             document.getElementById("result").innerHTML = `${celsius} degree celsius is equal to ${fahrenheit.toFixed(2)} degree fahrenheit.`;
         }
 
-        //HTML to read a number and on clicking button find the square of the number.
+        //sum of squares
+        
         function squareofanumber(){
             const num=document.getElementById("sum").value;
 
             const square=num*num;
             document.getElementById("square").innerHTML=`The square of ${num} is ${square}`;
         }
-        //Html page to enter names of fruits and insert the entered name to array and there is a dropdown and on selecting the index from drop down, display the fruit on the index.
+        
         const Fruits=[];
         
         function addFruit(){
             const fruit=document.getElementById("fruits").value
             
-                Fruits.push(fruits);
+                Fruits.push(fruit);
                 updateDropdown();
                 document.getElementById('fruits').value='';
            

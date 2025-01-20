@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Playlist Manager</title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li {
+            margin: 5px, 0;
+            padding: 0;
+        }
+        .priority-high{
+            color: red;
+        }
+        .priority-medium{
+            color: yellow;
+        }
+        .priority-low{
+            color: green;
+        }
+        .Watched{
+            color: gray;
+            text-decoration: line-through;
+        }
+        h1{
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Movie Playlist Manager</h1>
+    <input type="text" id="movie" placeholder="Enter Movie Name"><br><br>
+    <input type="number" id="priority" placeholder="Enter Priority"><br><br>
+    <button onclick="addMovie()">Add Movie</button>
+
+    <ul id="movielist"></ul>
+</div>
+<script src="movie.js"></script>
+    
+</body>
+</html>

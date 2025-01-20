@@ -9,6 +9,7 @@
   <button onclick="shoppingcart()">Show cart</button>
   <p id="cartsize"></p>
   <p id="total"></p>
+  
   <script>
     function shoppingcart(){
         const shoppingcart=new Map();
@@ -23,11 +24,15 @@
             'Grapes':90
         }
         let Totalcost=0;
+        let cartdetails='cart details'
+        
         shoppingcart.forEach((quantity,item)=>{
             Totalcost+=price[item]*quantity;
+            
         });
         
         document.getElementById('total').innerHTML="Total cost:Rs."+Totalcost
+        
     }
   </script>
 </body>
