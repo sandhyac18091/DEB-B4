@@ -80,5 +80,4 @@ function getData() {
     movielist.innerHTML = localStorage.getItem("movielist")
 }
 
-// getData()
 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment5</title>
+</head>
+<body>
+    <label>Enter side of square:</label>
+    <input type="text" id="inp1">
+    <button onclick="Areaofsquare()">Area of Square</button><br><br>
+    <label>Enter the length:</label>
+    <input type="text" id="inp2"><br><br>
+    <label>Enter the breadth:</label>
+    <input type="text" id="inp3">
+    <button onclick="Areaofrectangle()">Area of rectangle</button><br><br>
+    <label>Enter radius:</label>
+    <input type="text" id="inp4">
+    <button onclick="Areaofcircle()">Area of circle</button><br><br>
+    <p id="result"></p>
+    <script>
+        function Areaofsquare(){
+            const side=document.getElementById('inp1').value
+            let Area=side*side
+            document.getElementById('result').innerHTML='Area of square is:'+Area
+        }
+        function Areaofrectangle(){
+            const Length=document.getElementById('inp2').value
+            const Breadth=document.getElementById('inp3').value
+            let Rectangle=Length*Breadth
+            document.getElementById('result').innerHTML='Area of Rectangle is:'+Rectangle
+        }
+        function Areaofcircle(){
+            const radius=parseFloat(document.getElementById("inp4").value);
+            if(radius>0){
+                const area=Math.PI*Math.pow(radius,2);
+                document.getElementById("result").innerHTML="Area of Circle is:"+area.toFixed(2)
+            }else{
+                document.getElementById("result").innerHTML="Enter valid radius.";
+            }
+            
+        }
+    </script>
+</body>
+</html>

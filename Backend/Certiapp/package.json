@@ -1,5 +1,5 @@
 {
-  "name": "kba",
+  "name": "certiapp",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -15,6 +15,7 @@
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
     "nodemon": "^3.1.9"
   }

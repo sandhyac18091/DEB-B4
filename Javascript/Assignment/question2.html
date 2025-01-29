@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment1</title>
+</head>
+<body>
+    <label>Name</label>
+    <input type="text"><br><br>
+    <label>Address</label>
+    <input type="text"><br><br>
+    <label>Degree:</label>
+    <input type="radio" name="degree">Btech
+    <input type="radio" name="degree">Mtech
+    <input type="radio" name="degree">MCA
+    <input type="radio" id="other" name="degree" onclick="others()">Others
+    <br><br>
+    
+   
+    <div id="Courses" style="display: none; margin-top: 10px;">
+        <label>Other Courses:</label>
+        <select>
+            <option value="mba">BCA</option>
+            <option value="msc">PGDCA</option>
+            <option value="phd">MPHIL</option>
+            <option value="diploma">BCOM</option>
+        </select>
+    </div>
+
+    <script>
+        function others() {
+            const Courses = document.getElementById('Courses');
+            Courses.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

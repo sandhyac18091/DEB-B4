@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>FirstNumber</label>
+    <input type="text" id="num1"><br><br>
+    <label>SecondNumber</label>
+    <input type="text" id="num2"><br><br>
+    <button onclick="compare()">Compare</button>
+    <p id="result"></p>
+    <script>
+        function compare(){
+           const Num1=parseFloat(document.getElementById('num1').value)
+           const Num2=parseFloat(document.getElementById('num2').value)
+           const Result=document.getElementById('result')
+           if(Num1>Num2){
+            Result.textContent=`First number ${Num1} grater than second number ${Num2}`
+           }else{ if(Num1<Num2){
+            Result.textContent=`First number ${Num1} less then second number ${Num2}`
+           }else{
+            Result.textContent='Both numbers are equal';
+           }
+            
+           }
+        }
+    </script>
+</body>
+</html>
