@@ -1,26 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
-<body class="flex justify-center mt-32">
-    
-    <div class="w-96 h-2/1 bg-slate-200 rounded-md mt-10 shadow-md shadow-slate-500  fixed">
-        <p class="text-2xl text-left mt-8 ml-10 text-center font-serif">Sign Up</p><br>
-        <label class=" ml-7 text-xl font-serif">Fullname:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500"><br><br>
-        <label class="text-xl text-left mt-8 ml-8 font-serif">Username:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500"><br><br>
-        <label class=" ml-7 text-xl font-serif">Email:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500"><br><br>
-        <label class="text-xl text-left mt-8 ml-8 font-serif">Password:</label><br>
-        <input type="password" class="ml-7 w-80 h-8 border border-blue-500"><br><br>
-        <input type="button" value="Signup" class="bg-slate-400 w-24 h-7 rounded-lg ml-40 font-serif"><br>
-        <p class="ml-9 text-xl font-serif">Forgot Password?</p><br>
-        <p class="ml-9 text-xl font-serif">Don't have an accoount?<span class="text-sky-500 font-serif"><a href="login.html">Login</a></span></p>
-    </div>
+
+<body class="h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('purple.png');">
+    <form onsubmit="signup(event)">
+
+        <div class="w-[500px] p-8 bg-transparent rounded-md mt-24 shadow-md shadow-slate-500  ml-[730px]">
+            <p class="text-4xl text-left mt-8 ml-10 text-center font-serif font-bold text-yellow-600">Sign Up</p><br>
+
+            <label class=" ml-4 text-xl font-serif text-purple-950">Fullname</label><br>
+            <input type="text" class="ml-4 w-11/12  h-11 bg-white font-serif text-lg text-purple-950"
+                id="fName"><br><br>
+
+            <label class="  ml-4 text-xl font-serif text-purple-950">Username</label><br>
+            <input type="text" class=" ml-4 w-11/12  h-11 bg-white font-serif text-lg text-purple-950"
+                id="uName"><br><br>
+
+            <label class=" ml-4 text-xl font-serif text-purple-950">Email</label><br>
+            <input type="text" class=" ml-4 w-11/12  h-11 bg-white font-serif text-lg text-purple-950"
+                id="email"><br><br>
+
+            
+            
+            <label class=" ml-4 text-xl font-serif text-purple-950">Password</label><br>
+            <input type="password" class=" ml-4 w-11/12  h-11 bg-white font-serif text-lg text-purple-950"
+                id="passWord"><br><br>
+
+                <label class="ml-4 text-xl font-serif text-purple-950">Select Role</label><br>
+                <select class="ml-4 w-11/12 h-11 bg-white font-serif text-lg text-purple-950" id="role">
+                <option value="user">Admin</option>
+                <option value="admin">User</option>
+            </select><br><br>
+
+
+
+            <input type="submit" value="Signup"
+                class=" ml-4 w-11/12  h-11 bg-yellow-600 rounded-2xl text-lg text-white">
+            <p class="font-serif mt-6 text-center"> Have an account? <a href="login.html">Login</a></p>
+
+        </div>
+    </form>
+    <script>
+        async function signup(event) {
+            event.preventDefault();
+
+
+
+            const fullname = document.getElementById('fName').value
+            const username = document.getElementById('uName').value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('passWord').value
+            const userrole = document.getElementById('role').value
+
+            const response = await fetch("http://127.0.0.1:5003/signup", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    Fullname: fullname,
+                    Username: username,
+                    Email: email,
+                    Password: password,
+                    Userrole: userrole,
+                })
+            });
+            console.log(response.status);
+            const data = await response.text()
+            console.log(data);
+
+            if (response.status == '201') {
+                alert('Successfully registered')
+                window.location.href = 'login.html'
+            } else {
+                if (response.status == '400') {
+                    alert('Username alredy exist')
+                } else {
+                    alert('Try after sometime')
+                }
+            }
+
+        }
+    </script>
 </body>
+
 </html>

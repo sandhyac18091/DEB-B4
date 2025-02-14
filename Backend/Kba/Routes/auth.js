@@ -24,7 +24,7 @@ auth.post('/signup', async (req, res) => {
     //  console.log(newp);
 
 
-    if (username == 'sandhya123') {
+    if (user.get(username)) {
       res.status(400).json({message:'Username already exist'});
 
     }

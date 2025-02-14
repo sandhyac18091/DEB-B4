@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { authenticate } from '../Middleware/auth.js';
+import adminCheck from '../Middleware/admincheck.js';
 
 dotenv.config()
 const Adminroute=Router()
@@ -58,7 +59,7 @@ Adminroute.post('/login',async(req,res)=>{
     res.status(500).json({message:'Internal server error'})
    }
 })
-Adminroute.post('/issuecertificate',authenticate,(req,res)=>{
+Adminroute.post('/issuecertificate',authenticate,adminCheck,(req,res)=>{
    try{
     const{Selectcourse,Certificateid,Candidatename,Selectgrade,issuedate}=req.body
     if(Certificate.get(Certificateid)){
@@ -83,7 +84,7 @@ Adminroute.get('/getcertificate/:Certificateid',(req,res)=>{
         console.log(Certificate.get(certi));
         
     }else{
-        res.status(400).json({message:'Certificate not availabel'})
+        res.status(400).json({message:'Certificate not available'})
     }
     
 })

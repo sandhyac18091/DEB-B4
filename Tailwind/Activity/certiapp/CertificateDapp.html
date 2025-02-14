@@ -1,55 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Dapp</title>
+    <title>CertificateDapp</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
 </head>
-<body>
 
-    <div class="text-right mb-12">
-    <label><a href="Home.html">Home</a></label>
-    <input type="button" value="Issue Certificate" class="bg-cyan-400 w-32 rounded-lg ">
+<body class="bg-blue-100">
+
+    <div class="flex justify-end space-x-4 p-4">
+    <a href="Home.html" class="bg-blue-500 hover:bg-sky-500 text-white font-serif px-6 py-2 rounded-md shadow-md">Home</a>
+    <a href="issuecertificate.html" class="bg-blue-500 hover:bg-sky-500 text-white font-serif px-6 py-2 rounded-md shadow-md">Issue Certificate</a>
 </div>
-    <h1 class="font-extrabold text-3xl text-center font-sans">Certificate Dapp</h1>
-    <div class="bg-slate-300 w-1/5 p-8 rounded-lg shadow-lg shadow-gray-900 m-auto mt-10">
-        <label>Issue New Certificate</label><br><br>
-        <div class="mt-5">
-        <label>Select Course*</label><br>
-        <select class="w-11/12 h-9 rounded-md">
-            <option value="Certificate Blockchain Associate">Certificate Blockchain Associate</option>
-            <option value="staff">Staff</option>
-            <option value="Others">Oters</option>
-        </select></div>
 
-        <div class="mt-5">
-        <label>Certificate ID*</label><br>
-        <select class="w-11/12 h-9 rounded-md"><br>
-            <option value="Certificate ID">Certificate ID</option><br>
-            <option value="staff">Staff</option>
-            <option value="Others">Oters</option>
-        </select></div><br>
+    <form onsubmit="issuecertificate(event)">
+        <div class="w-5/12 p-8 bg-yellow-100 rounded-md mt-24 shadow-md shadow-slate-500 ml-[560px]">
+            <p class="text-4xl text-left mt-8 ml-10 text-center font-serif font-bold text-yellow-600">Issue New
+                Certificate</p><br>
 
-        <label class="mt-5">Candidate name*</label><br>
-        <select class="w-11/12 h-9 rounded-md"><br>
-            <option value="Name">Name</option>
-            <option value="staff">Staff</option>
-            <option value="Others">Oters</option>
-        </select><br><br>
 
-        <label class="mt-5">Select Grade*</label><br>
-        <select class="w-11/12 h-9 rounded-md"><br>
-            <option value="S">S</option>
-            <option value="staff">A+</option>
-            <option value="Others">A</option>
-        </select><br><br>
-        <label class="">issue Date</label><br>
-        <input type="date" class="w-11/12 h-9 rounded-md"><br><br>
-        <input type="submit" value="Issue Certificate" class="border-2 w-32 border-purple-950 bg-zinc-400 rounded-lg">
-    </div><br><br><br><br><br><br><br><br><br><br>
-   
-<a href="View Certificate.html" class="text-xl ml-4 pb-60">View Certificate</a>
+            <label class="ml-7 text-xl font-serif text-purple-950">Select Course</label><br>
+            <select class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950" id="course">
+                <option>Select Course</option>
+                <option>Certified Blockcain Associate</option>
+                <option>Mern stack Development</option>
+                <option>Staff</option>
+                <option>Others</option>
+            </select><br><br>
+
+
+
+            <label class="ml-7 text-xl font-serif text-purple-950">Certificate ID</label><br>
+            <input type="text" class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950"
+                id="certID"><br><br>
+
+
+            <label class="ml-7 text-xl font-serif text-purple-950">Candidate Name</label><br>
+            <input type="text" class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950"
+                id="Name"><br><br>
+
+
+
+            <label class="ml-7 text-xl font-serif text-purple-950">Select Grade</label><br>
+            <select class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950" id="grade">
+                <option>S</option>
+                <option>A+</option>
+                <option>A</option>
+
+            </select><br><br>
+
+
+
+            <label class="ml-7 text-xl font-serif text-purple-950">Issue Date</label><br>
+            <input type="date" class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950"
+                id="Date"><br><br>
+
+
+            <input type="submit" value="Issue Certificate" class="ml-7 w-11/12 h-11 bg-yellow-600 rounded-2xl text-lg text-white">
+            
+        </div>
+    </form>
 </body>
+
+</html>
+
+<script>
+    async function issuecertificate(event) {
+        event.preventDefault();
+        
+
+        const SelectCourse = document.getElementById('course').value
+        const CertificateId = document.getElementById('certID').value
+        const CandidateName = document.getElementById('Name').value
+        const SelectGrade = document.getElementById('grade').value
+        const IssueDate = document.getElementById('Date').value
+
+        const response = await fetch("http://127.0.0.1:5003/issuecertificate", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                Selectcourse:SelectCourse,
+                Certificateid:CertificateId,
+                Candidatename:CandidateName,
+                Selectgrade:SelectGrade,
+                issuedate:IssueDate
+            })
+        });
+        console.log(response.status);
+        const data = await response.text()
+        console.log(data);
+
+        if (response.status == '201') {
+            alert('Certificate issued successfully')
+            window.location.href = 'View Certificate.html'
+        } else {
+            if (response.status == '403') {
+                alert('Certificate id already exist')
+            } else {
+                alert('Try after sometime')
+            }
+        }
+
+    }
+</script>
+</body>
+
 </html>

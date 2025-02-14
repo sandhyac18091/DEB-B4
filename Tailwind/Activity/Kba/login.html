@@ -6,16 +6,56 @@
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex justify-center mt-32">
-    <div class="w-96 h-5/12 bg-purple-200 rounded-md mt-10 fixed shadow-md shadow-slate-500 ">
-        <p class="text-3xl text-center mt-8 ml-10 font-serif text-purple-450">Login</p><br>
-        <label class=" ml-7 text-xl font-serif">Email:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500 hover:ring-4 ring-purple-400"><br><br>
-        <label class="text-xl text-left mt-8 ml-8 font-serif">Password:</label><br>
-        <input type="password" class="ml-7 w-80 h-8 border border-cyan-500  hover:ring-4 ring-purple-400"><br><br>
-        <a href="/Tailwind/Kba/home.html" class="bg-purple-500 w-24 h-9 rounded-lg ml-40 font-serif text-center flex items-center justify-center"> Login</a>
-        <p class="ml-9 text-lg font-serif mt-9">Forgot Password?</p><br>
-        <p class="ml-9 text-lg font-serif">Don't have an accoount?<span class=" font-serif text-purple-450"><a href="signup.html">SignUp</a></span></p>
+<body class="bg-blue-100">
+    <form onsubmit="login(event)">
+
+    <div class="w-5/12 p-8 bg-yellow-100 rounded-md mt-24 shadow-md shadow-slate-500 ml-[560px]">
+        <p class="text-4xl text-left mt-8 ml-10 text-center font-serif font-bold text-yellow-600">Login</p><br>
+    
+        <label class=" ml-7 text-xl font-serif text-purple-950">Username</label><br>
+        <input type="text" class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950" id='uName'><br><br>
+
+        <label class=" ml-7 text-xl font-serif text-purple-950">Password</label><br>
+        <input type="password" class="ml-7 w-11/12 h-11 bg-white font-serif text-lg text-purple-950" id='passWord'><br><br>
+
+        <input type="submit" value="Login" class="ml-7 w-11/12 h-11 bg-yellow-600 rounded-2xl text-lg text-white">
+        <p class="font-serif mt-6 text-center">Don't have an account? <a href="signup.html">Sign up</a></p>
+
     </div>
+    </form>
+    <script>
+        async function login(event) {
+            event.preventDefault();
+
+            const Username = document.getElementById('uName').value;
+            const Password = document.getElementById('passWord').value;
+
+            const res = await fetch('http://127.0.0.1:8000/login', {
+                method: 'POST',
+                credential: 'include',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({
+                    username: Username,
+                    password: Password,
+                })
+            });
+
+            console.log(res.status);
+            const data = await res.text();  
+
+            console.log(data);
+
+            if (res.status == '200') {  
+                alert('Successfully logged in');
+                window.location.href = 'addcourse.html';
+            } else if (res.status =='401') {
+                alert('Enter valid username');
+            } else {
+                alert('Unauthorized access');
+            }
+        }
+    </script>
 </body>
 </html>

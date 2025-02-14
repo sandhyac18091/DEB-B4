@@ -2,8 +2,8 @@ import { Router } from "express";
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
-import authenticate from "../Middleware/auth";
-import adminCheck from "../Middleware/admincheck";
+import authenticate from "../Middleware/auth.js";
+import adminCheck from "../Middleware/admincheck.js";
 dotenv.config()
 
 const Adminroute=Router()
@@ -58,11 +58,6 @@ Adminroute.post('/Login',async(req,res)=>{
     res.status(500).json({message:'Internal server error'})
    }
 })
-Adminroute.post('/addlog',authenticate,adminCheck,(req,res)=>{
-    const{Logtitle,Location,Dateoftravel,Description}=req.body
-    if(travel.get(Logtitle)){
-        res.status(403).json({message:"Already "})
-    }
-})
+
 
 export default Adminroute;

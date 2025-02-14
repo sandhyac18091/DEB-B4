@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import authenticate from '../Middleware/auth.js'
+import adminCheck from "../Middleware/admincheck.js";
 
 dotenv.config()
 const adminroute = Router();
@@ -56,7 +57,7 @@ adminroute.post('/Login', async (req, res) => {
         res.status(500).send({ message: 'Internal server error' })
     }
 })
-adminroute.post('/addbook', authenticate, (req, res) => {
+adminroute.post('/addbook', authenticate,adminCheck, (req, res) => {
     try {
         const { Bookname, Booktype, Description, Uploadbook, Price } = req.body
         if (book.get(Bookname)) {
@@ -84,6 +85,31 @@ adminroute.get('/getbook/:Bookname',(req,res)=>{
     res.status(403).json({message:'Book not available'})
   }
 
+})
+adminroute.patch('/updatebook',authenticate,(req,res)=>{
+    const{Bookname,Booktype,Price}=req.body
+    console.log(Booktype);
+    const result=book.get(Bookname)
+    console.log(result);
+    if(result){
+        book.set(Bookname,{Booktype,Description:result.Description,Price,Uploadbook:result.Uploadbook})
+        res.status(200).json({message:'Book updated successfully'})
+    }else{
+        res.status(404).json({message:'Book not available'})
+    }
+    
+    
+});
+adminroute.delete('/deletebook/:Bookname',authenticate,adminCheck,(req,res)=>{
+    const bookname=req.params.Bookname
+    console.log(bookname,'Deleted successfully');
+    if(book.get(bookname)){
+        book.delete(bookname)
+        res.status(200).json({message:'Book deleted successfully'})
+    }else{
+        res.status(404).json({message:'Book not available'})
+    }
+    
 })
 
 export { adminroute }

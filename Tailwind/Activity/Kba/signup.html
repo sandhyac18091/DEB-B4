@@ -5,22 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="flex justify-center mt-32">
     
-    <div class="w-96 h-2/1 bg-purple-200 rounded-md mt-10 shadow-md shadow-slate-500  fixed">
-        <p class="text-2xl text-left mt-8 ml-10 text-center font-serif">Sign Up</p><br>
-        <label class=" ml-7 text-xl font-serif">Fullname:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500 hover:ring-4 ring-blue-500"><br><br>
-        <label class="text-xl text-left mt-8 ml-8 font-serif">Username:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500 hover:ring-4 ring-blue-500"><br><br>
-        <label class=" ml-7 text-xl font-serif">Email:</label><br>
-        <input type="text" class="ml-7 w-80 h-8 border border-cyan-500 hover:ring-4 ring-blue-500"><br><br>
-        <label class="text-xl text-left mt-8 ml-8 font-serif">Password:</label><br>
-        <input type="password" class="ml-7 w-80 h-8 border border-blue-500 hover:ring-4 ring-blue-500"><br><br>
-        <a href="/Tailwind/Kba/login.html" class="bg-purple-500 w-24 h-9 rounded-lg ml-40 font-serif text-center flex items-center justify-center"> Sign Up</a>
-        <p class="ml-9 text-lg font-serif">Forgot Password?</p><br>
-        <p class="ml-9 text-lg font-serif">Don't have an accoount?<span class="text-purple-450 font-serif"><a href="login.html">Login</a></span></p>
+</head>
+<body class="bg-blue-100">
+   <form onsubmit="signup(event)">
+     
+ <div class="w-5/12 p-8 bg-yellow-100 rounded-md mt-24 shadow-md shadow-slate-500  ml-[560px]">
+        <p class="text-4xl text-left mt-8 ml-10 text-center font-serif font-bold text-yellow-600">Sign Up</p><br>
+        
+        <label class=" ml-7 text-xl font-serif text-purple-950" >Firstname</label><br>
+        <input type="text" class="ml-7 w-11/12  h-11 bg-white font-serif text-lg text-purple-950" id="fName"><br><br>
+        
+        <label class=" ml-7 text-xl font-serif text-purple-950" >Lastname</label><br>
+        <input type="text" class="ml-7 w-11/12  h-11 bg-white font-serif text-lg text-purple-950" id="lName"><br><br>
+    
+        <label class=" ml-7 text-xl font-serif text-purple-950">Username</label><br>
+        <input type="text" class="ml-7 w-11/12  h-11 bg-white font-serif text-lg text-purple-950" id="uName"><br><br>
+
+        <label class=" ml-7 text-xl font-serif text-purple-950" >Password</label><br>
+        <input type="password" class="ml-7 w-11/12  h-11 bg-white font-serif text-lg text-purple-950" id="passWord"><br><br>
+
+         
+        <label class="text-xl text-left mt-8 ml-8 font-serif text-purple-950">Userrole</label><br>
+        <select class="ml-7 w-11/12  h-11 bg-white font-serif text-lg text-purple-950"  id="role">
+            <option>Admin</option>
+            <option>User</option>
+        </select><br><br>
+        
+       <input type="submit"  value="Signup" class="ml-7 w-11/12  h-11 bg-yellow-600 rounded-2xl text-lg text-white">
+       <p class="font-serif mt-6 text-center"> Have an account? <a href="login.html">Login</a></p>
+
     </div>
+</form>
+    <script>
+        async function signup(event) {
+            event.preventDefault();
+            console.log("hai");
+            
+
+            const Firstname=document.getElementById('fName').value
+            const Lastname=document.getElementById('lName').value
+            const Username=document.getElementById('uName').value
+            const Password=document.getElementById('passWord').value
+            const userrole=document.getElementById('role').value
+
+            const response=await fetch("http://127.0.0.1:8000/signup",{//is a method used to communicate with an api,to call any api like wether api,market rate api
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json' //wich type of content
+                },
+                body:JSON.stringify({
+                    firstname:Firstname, 
+                    lastname:Lastname, 
+                    username:Username, 
+                    password:Password, 
+                    Userrole:userrole,
+                    })
+            });
+            console.log(response.status);
+            const data=await response.text()
+            console.log(data);
+            
+            if(response.status=='201'){
+                alert('Successfully registered')
+                window.location.href='login.html'
+            }else{
+                if(response.status=='400'){
+                    alert('Username alredy exist')
+                }else{
+                    alert('Try after sometime')
+                }
+            }
+            
+        }
+    </script>
 </body>
 </html>
